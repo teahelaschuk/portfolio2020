@@ -21,9 +21,9 @@ namespace portfolio2020
             else if (sender == link_gallery)
                 Response.Redirect("gallery.aspx");
             else if (sender == link_haiku)
-                Response.Redirect("haiku.aspx");
+                Response.Redirect("generator.aspx");
             else
-                Response.Redirect("wip.aspx");
+                Response.Redirect("generator.aspx");    /* change back to wip after testing */
         }
     }
 }

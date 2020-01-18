@@ -109,7 +109,6 @@
     <Content Include="App_Data\haiku.mdb" />
     <Content Include="App_Data\mhyph.txt" />
     <Content Include="cl-haiku.html" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -128,6 +127,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="App_Data\haiku.ldb" />
+    <Content Include="generator.aspx" />
+    <Content Include="wip.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\a1.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -175,13 +176,6 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,6 +207,20 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="generator.aspx.cs">
+      <DependentUpon>generator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="generator.aspx.designer.cs">
+      <DependentUpon>generator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wip.aspx.cs">
+      <DependentUpon>wip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wip.aspx.designer.cs">
+      <DependentUpon>wip.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

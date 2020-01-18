@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace portfolio2020
 {
-    public partial class Contact : Page
+    public partial class wip : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

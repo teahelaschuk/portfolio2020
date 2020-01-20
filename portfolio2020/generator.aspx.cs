@@ -8,6 +8,7 @@ using System.IO;
 using System.Data.OleDb;
 using System.Configuration;
 using System.Threading;
+using System.Data.SqlClient;
 
 namespace portfolio2020
 {
@@ -16,8 +17,6 @@ namespace portfolio2020
         Random r;
         List<string> lines;
         int lineNum;
-        OleDbConnection con = new OleDbConnection();
-        OleDbCommand cmd = new OleDbCommand();
 
         /// <summary>
         /// Sets up the page
@@ -51,7 +50,7 @@ namespace portfolio2020
                 text_initials.Text = text_initials.Text.ToUpper();
             }
 
-            /*
+            
             // add haiku to db
             if (SaveHaiku(label_haiku1.Text, label_haiku2.Text, label_haiku3.Text, text_initials.Text))
             {
@@ -59,35 +58,35 @@ namespace portfolio2020
             }
             else
             {
-                label_prompt.Text = "Something went wrong. (I'm working on it)";
+                label_prompt.Text = "Something went wrong. (I'm working on it!)";
             }
-
+            
             // update guestbook
             text_initials.Visible = false;
             btn_saveq.Visible = false;
             DataList_gl.DataBind();
-            UpdatePanel1.Update();
-            */
+            UpdatePanel2.Update();
         }
 
-        /*
+        
         /// <summary>
         /// Takes haiku data and adds to database. Returns true is successful.
         /// </summary>
         protected bool SaveHaiku(string line1, string line2, string line3, string name)
         {
+            string cmdtext = "INSERT INTO[haiku](line1, line2, line3, author, date, votes)" +
+                "VALUES (@l1, @l2, @l3, @nm, @date, 0)";
             // set up db connection
-            con = new OleDbConnection("Provider=SQLNCLI10; Server=tcp:haikugendbserver.database.windows.net; Database=haikugendb; Uid=teahe@haikugendbserver; Pwd=disco;");
-            con.Open();
-
-            cmd = new OleDbCommand(@"INSERT INTO[haikus](line1, line2, line3, author, entrydate, votes)" +
-                "VALUES (@l1, @l2, @l3, @nm, @date, 0)", con);
-            cmd.Parameters.AddWithValue("@l1", line1);
-            cmd.Parameters.AddWithValue("@l2", line2);
-            cmd.Parameters.AddWithValue("@l3", line3);
-            cmd.Parameters.AddWithValue("@nm", name);
-            cmd.Parameters.AddWithValue("@date", DateTime.Today);
-
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
+                SqlCommand cmd = new SqlCommand(cmdtext, con);
+                cmd.Parameters.AddWithValue("@l1", line1);
+                cmd.Parameters.AddWithValue("@l2", line2);
+                cmd.Parameters.AddWithValue("@l3", line3);
+                cmd.Parameters.AddWithValue("@nm", name);
+                cmd.Parameters.AddWithValue("@date", DateTime.Today);
+                // add exception handling if no wifi
+                con.Open();
+       
             // execute + check for errors -- incomplete
             int a = cmd.ExecuteNonQuery();
             con.Close();
@@ -97,8 +96,6 @@ namespace portfolio2020
             }
             return true;
         }
-
-    */
 
         /// <summary>
         /// Calls on MakeLine() to form a haiku and displays it.
@@ -185,12 +182,13 @@ namespace portfolio2020
                 }
 
                 // update db
-                UpdateVotes(id, votes);
+               // UpdateVotes(id, votes);
 
                 // update guestbook
             }
         }
 
+        /*
         /// <summary>
         /// Connects to the database and updates the number of votes on the selected haiku
         /// </summary>
@@ -215,6 +213,7 @@ namespace portfolio2020
             }
             con.Close();
         }
+        */
 
     }
 }

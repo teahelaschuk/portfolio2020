@@ -4,7 +4,7 @@
     <div class="content">
         
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
 
         <div class="box1">
@@ -50,7 +50,41 @@
                 ★★★★★★★★★★★
             </h3>
             <br />
-            
+             <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:DataList CssClass="haikulist" Autopostback="true" ID="DataList_gl" runat="server" DataKeyField="ID" DataSourceID="haikus_saved">
+                        <ItemTemplate>
+                            <asp:Label ID="line1Label" runat="server" Text='<%# Eval("line1") %>' />
+                            <br />
+                            <asp:Label ID="line2Label" runat="server" Text='<%# Eval("line2") %>' />
+                            <br />
+                            <asp:Label ID="line3Label" runat="server" Text='<%# Eval("line3") %>' />
+                            <br />
+                            <br />
+                            <asp:Label CssClass="haikuInfoLabel" ID="authorLabel" runat="server" Text='<%# Eval("author") + ", " + Eval("date", "{0:d}") %>' />
+                            <br />
+                            <asp:Button CssClass="votebtn" ID="btn_voteup" runat="server" Text="▲" CommandArgument='<%#Eval("ID")+","+ Eval("votes")%>' CommandName="upClick" OnClick="votebtn_Click" CausesValidation="False" />
+                            <asp:Label CssClass="haikuInfoLabel" ID="votesLabel" runat="server" Text='<%# Eval("votes")%>' />
+                            <asp:Button CssClass="votebtn" ID="btn_votedown" runat="server" Text="▼" CommandArgument='<%#Eval("ID")+","+ Eval("votes")%>' CommandName="downClick" OnClick="votebtn_Click" CausesValidation="False" />
+                        </ItemTemplate>
+                        <SeparatorTemplate>
+                            <br />
+                            ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+                            <br /><br />
+                        </SeparatorTemplate>
+                    </asp:DataList>
+                    <asp:SqlDataSource 
+                        ID="haikus_saved" 
+                        runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                        SelectCommand="SELECT * FROM [haiku] ORDER BY [votes] DESC, [date] DESC">
+                    </asp:SqlDataSource>
+        
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger EventName="Click" ControlID="btn_saveq" />
+                </Triggers>
+            </asp:UpdatePanel>
           
             
 

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace portfolio2020 {
-    
-    
-    public partial class Site {
-        
+namespace portfolio2020
+{
+
+
+    public partial class Site
+    {
+
         /// <summary>
         /// head control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace portfolio2020 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
+
         /// <summary>
         /// newform control.
         /// </summary>
@@ -29,17 +31,7 @@ namespace portfolio2020 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm newform;
-       
-        
-        /// <summary>
-        /// haikulink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button haikulink;
-        
+
         /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>

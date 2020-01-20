@@ -9,7 +9,7 @@
     <title>Haiku Generator</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="StyleSheet" href="style.css" type="text/css">
+    <link rel="StyleSheet" href="style.css" type="text/css"/>
 </head>
 <body>
     <form id="newform" runat="server"> 

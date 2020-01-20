@@ -74,22 +74,24 @@ namespace portfolio2020
         /// </summary>
         protected bool SaveHaiku(string line1, string line2, string line3, string name)
         {
+            int a;
             string cmdtext = "INSERT INTO[haiku](line1, line2, line3, author, date, votes)" +
                 "VALUES (@l1, @l2, @l3, @nm, @date, 0)";
             // set up db connection
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
-                SqlCommand cmd = new SqlCommand(cmdtext, con);
+            using (SqlCommand cmd = new SqlCommand(cmdtext, con))
+            {
+                con.Open();
                 cmd.Parameters.AddWithValue("@l1", line1);
                 cmd.Parameters.AddWithValue("@l2", line2);
                 cmd.Parameters.AddWithValue("@l3", line3);
                 cmd.Parameters.AddWithValue("@nm", name);
                 cmd.Parameters.AddWithValue("@date", DateTime.Today);
                 // add exception handling if no wifi
-                con.Open();
-        
-            // execute + check for errors -- incomplete
-            int a = cmd.ExecuteNonQuery();
-            con.Close();
+                a = cmd.ExecuteNonQuery();
+            }
+            
+            //checking success
             if (a <= 0)
             {
                 return false;

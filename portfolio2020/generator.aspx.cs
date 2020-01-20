@@ -86,7 +86,7 @@ namespace portfolio2020
                 cmd.Parameters.AddWithValue("@date", DateTime.Today);
                 // add exception handling if no wifi
                 con.Open();
-       
+        
             // execute + check for errors -- incomplete
             int a = cmd.ExecuteNonQuery();
             con.Close();
@@ -182,38 +182,39 @@ namespace portfolio2020
                 }
 
                 // update db
-               // UpdateVotes(id, votes);
+                UpdateVotes(id, votes);
 
                 // update guestbook
+                DataList_gl.DataBind();
+                UpdatePanel1.Update();
             }
         }
 
-        /*
+        
         /// <summary>
         /// Connects to the database and updates the number of votes on the selected haiku
         /// </summary>
         protected void UpdateVotes(int id, int newVotes)
         {
             // set up db connection
-            con = new OleDbConnection()
-            {
-                ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString()
-            };
-            con.Open();
+            string cmdtext = "UPDATE [haiku] SET votes = @votes WHERE id = @ID";
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
 
-            cmd = new OleDbCommand(@"UPDATE [haikus] SET votes = @votes WHERE id = @ID", con);
-            cmd.Parameters.AddWithValue("@votes", newVotes);
-            cmd.Parameters.AddWithValue("@ID", id);
-
-            // execute + check for errors
-            int a = cmd.ExecuteNonQuery();
-            if (a <= 0)
+            using (SqlCommand cmd = new SqlCommand(cmdtext, con))
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Something went wrong! Cannot add to database')", true);
+                con.Open();
+                cmd.Parameters.AddWithValue("@votes", newVotes);
+                cmd.Parameters.AddWithValue("@ID", id);
+
+                // execute + check for errors
+                int a = cmd.ExecuteNonQuery();
+                if (a <= 0)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Something went wrong! Cannot add to database')", true);
+                }
             }
-            con.Close();
         }
-        */
+        
 
     }
 }

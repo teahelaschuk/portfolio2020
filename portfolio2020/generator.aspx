@@ -97,12 +97,12 @@
     <br />
     <asp:Label ID="label_notice" CssClass="haikuInfoLabel" runat="server" Text="Label">*Note: The dictionary was aquired from an open-source project and
         is still in the process of being edited. Help edit the dictionary here [ <a href="http://goo.gl/4uc8js" style="font-size: smaller; color:lightgray;">github</a> ], or
-        let me know what's wrong at  [ <a href="mailto:admin@teahelaschuk.net" style="font-size: smaller; color:lightgray;">admin@teahelaschuk.net</a> ]
+        let me know what's wrong at  [ <a href="mailto:longlivedisco2000@live.com" style="font-size: smaller; color:lightgray;">longlivedisco2000@live.com</a> ]
     </asp:Label>
     <br />
     <br />
     <asp:Panel ID="Panel1" runat="server" CssClass="footer">
-        Teah Elaschuk 2018 - Haiku Generator v2.0.1 [<a href="cl-haiku.html" style="font-size: smaller;">changelog</a>]
+        Teah Elaschuk 2020 - Haiku Generator v2.1.0 [<a href="cl-haiku.html" style="font-size: smaller;">changelog</a>]
     </asp:Panel>
 
 

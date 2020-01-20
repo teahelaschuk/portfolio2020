@@ -62,6 +62,11 @@ a:visited {
     text-align: center;
 }
 
+.haiku_container {
+    height: 75px;
+
+}
+
 .box1 {
     margin: 10px;
     padding: 20px;
@@ -83,6 +88,7 @@ a:visited {
     border: #AA00FF 2px solid; 
     max-width: 60%; 
     margin:auto; 
+    height: 100px;
 }
 
 .img-haiku {
@@ -147,4 +153,41 @@ img {
 hr {
     width: 100%;
     border-color: black;
+}
+
+#splash {
+    color: #AA00FF;
+    font-size: xx-large;
+    text-align: center;
+    vertical-align: middle;
+    align-content:center;
+    display: block;
+}
+
+#splash p {
+    margin-top: 5%;
+    margin-bottom:0;
+}
+
+
+.haikulink {
+    font-family: 'Times New Roman';
+    color: #AA00FF;
+    background-color: black;
+    border: none;
+    font-size: 30px;
+    font-size: larger;
+    text-decoration: underline;
+}
+
+.haikulink:hover{
+    font-style: italic;
+}
+
+#stargif {
+    width: 300px;
+    margin-left: 41%;
+    padding-top: 0;
+    margin-top: 0;
+    display:block;
 }

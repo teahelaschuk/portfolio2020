@@ -11,19 +11,7 @@ namespace portfolio2020
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
-
-        protected void navClick(object sender, EventArgs e)
-        {
-            if (sender == link_home)
-                Response.Redirect("default.aspx");
-            else if (sender == link_gallery)
-                Response.Redirect("gallery.aspx");
-            else if (sender == link_haiku)
-                Response.Redirect("generator.aspx");
-            else
-                Response.Redirect("generator.aspx");    /* change back to wip after testing */
-        }
+       
     }
 }

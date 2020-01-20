@@ -107,6 +107,9 @@ namespace portfolio2020
             label_haiku1.Text = MakeLine(5);
             label_haiku2.Text = MakeLine(7);
             label_haiku3.Text = MakeLine(5);
+            label_haiku1.Font.Size = FontUnit.Larger;
+            label_haiku2.Font.Size = FontUnit.Larger;
+            label_haiku3.Font.Size = FontUnit.Larger;
 
             label_prompt.Text = "Is it brilliant? Add it to the guestbook.";
             text_initials.Visible = true;

@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="generator.aspx.cs" Inherits="portfolio2020.Generator" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
     <div class="content">
         
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -13,13 +14,16 @@
                 ★★★★★★★★★★★
             </h3>
             <br />
-            <asp:Label ID="label_haiku1" runat="server"></asp:Label>
+            <div class="haiku_container">
+                <asp:Label ID="label_haiku1" runat="server"></asp:Label>
+                <br />
+                <asp:Label ID="label_haiku2" runat="server"></asp:Label>
+                <br />
+                <asp:Label ID="label_haiku3" runat="server"></asp:Label>
+            </div>
             <br />
-            <asp:Label ID="label_haiku2" runat="server"></asp:Label>
             <br />
-            <asp:Label ID="label_haiku3" runat="server"></asp:Label>
-            <br />
-            <br />
+
 
             
 
@@ -102,7 +106,7 @@
     <br />
     <br />
     <asp:Panel ID="Panel1" runat="server" CssClass="footer">
-        Teah Elaschuk 2020 - Haiku Generator v2.1.0 [<a href="cl-haiku.html" style="font-size: smaller;">changelog</a>]
+        Teah Elaschuk 2020 - Haiku Generator v3.0 [<a href="cl-haiku.html" style="font-size: smaller;">changelog</a>]
     </asp:Panel>
 
 
